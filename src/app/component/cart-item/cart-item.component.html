@@ -1,0 +1,75 @@
+<div class="cartItem">
+  @defer () { @if (data.productImages[0]) {
+  <img [src]="data.productImages[0]" alt="random image" />
+  } @else {
+  <img [src]="placeholderImg" alt="placeholder image" />
+  }} @placeholder { <img [src]="placeholderImg" alt="placeholder image" />}
+  <div class="col-span-2">
+    <h4 id="productName">{{ data.name }}</h4>
+    <h6 class="text-grey" id="productModel">{{ data.model }}</h6>
+
+    @if (data.cost_in_credits === 'unknown') {
+    <p id="price" class="price">
+      <span class="sale"> R99</span
+      ><span class="line-through">{{ data.cost_in_credits }}</span>
+    </p>
+    } @else {
+    <p id="price" class="price">
+      {{ data.cost_in_credits }}
+    </p>
+    }
+  </div>
+
+  <!-- ==== Future function ===== -->
+  <div class="flex justify-end">
+    <h6>Quantity: {{ data.quantity }}</h6>
+  </div>
+  <!-- <div class="flex justify-end">
+    <div class="inptCounterDiv">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        class="w-6 h-6"
+        (click)="decreaseQty(data.id)"
+      >
+        <path
+          fill-rule="evenodd"
+          d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm3 10.5a.75.75 0 0 0 0-1.5H9a.75.75 0 0 0 0 1.5h6Z"
+          clip-rule="evenodd"
+        />
+      </svg>
+
+      <input type="text" [value]="data.quantity" class="inputCounter" />
+
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 24 24"
+        fill="currentColor"
+        class="w-6 h-6"
+        (click)="increaseQty(data.id)"
+      >
+        <path
+          fill-rule="evenodd"
+          d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25ZM12.75 9a.75.75 0 0 0-1.5 0v2.25H9a.75.75 0 0 0 0 1.5h2.25V15a.75.75 0 0 0 1.5 0v-2.25H15a.75.75 0 0 0 0-1.5h-2.25V9Z"
+          clip-rule="evenodd"
+        />
+      </svg>
+    </div>
+  </div> -->
+
+  <div class="flex justify-end" (click)="removeFromCart(data.id)">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      class="w-6 h-6 fill-grey hover:fill-error"
+    >
+      <path
+        fill-rule="evenodd"
+        d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm-1.72 6.97a.75.75 0 1 0-1.06 1.06L10.94 12l-1.72 1.72a.75.75 0 1 0 1.06 1.06L12 13.06l1.72 1.72a.75.75 0 1 0 1.06-1.06L13.06 12l1.72-1.72a.75.75 0 1 0-1.06-1.06L12 10.94l-1.72-1.72Z"
+        clip-rule="evenodd"
+      />
+    </svg>
+  </div>
+</div>

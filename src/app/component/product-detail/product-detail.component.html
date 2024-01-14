@@ -1,0 +1,114 @@
+<div class="container">
+  <div class="grid grid-cols-2 mt-8">
+    @defer () {
+
+    <!--  LEFT SIDE -->
+
+    <div class="flex items-center justify-center">
+      <!-- <button (click)="prevImage()">Previous</button> -->
+      <svg
+        (click)="prevImage()"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="w-6 h-6 cursor-pointer mr-2"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M15.75 19.5 8.25 12l7.5-7.5"
+        />
+      </svg>
+
+      @defer () {<img
+        [src]="productImages[currentImageIndex]"
+        alt="product image"
+      />
+      } @loading {<img [src]="placeholderImg" alt="product image" />}
+
+      <svg
+        (click)="nextImage()"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke-width="1.5"
+        stroke="currentColor"
+        class="w-6 h-6 cursor-pointer ml-2"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="m8.25 4.5 7.5 7.5-7.5 7.5"
+        />
+      </svg>
+      <!-- <button (click)="nextImage()">Next</button> -->
+    </div>
+
+    <!--  RIGHT SIDE -->
+
+    <div class="p-10">
+      <h5 id="productName">{{ product.name }}</h5>
+      <h6 class="text-grey" id="productModel">{{ product.model }}</h6>
+
+      @if (product.cost_in_credits === 'unknown') {
+      <p id="price" class="price">
+        <span class="sale"> R99</span
+        ><span class="line-through">R{{ product.cost_in_credits }}</span>
+      </p>
+      } @else {
+      <p id="price" class="price">R{{ product.cost_in_credits }}</p>
+      }
+
+      <ul class="">
+        <li>Manufacturer: {{ product.manufacturer }}</li>
+        <li>Max speed: {{ product.max_atmosphering_speed }}</li>
+        <li>Class: {{ product.vehicle_class }}</li>
+        <li>Passengers: {{ product.passengers }}</li>
+      </ul>
+
+      <div class="inptCounterDiv">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          class="w-6 h-6"
+          (click)="decreaseQuantity()"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25Zm3 10.5a.75.75 0 0 0 0-1.5H9a.75.75 0 0 0 0 1.5h6Z"
+            clip-rule="evenodd"
+          />
+        </svg>
+
+        <input id="qty" type="text" [value]="quantity" class="inputCounter" />
+
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          class="w-6 h-6"
+          (click)="increaseQuantity()"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25ZM12.75 9a.75.75 0 0 0-1.5 0v2.25H9a.75.75 0 0 0 0 1.5h2.25V15a.75.75 0 0 0 1.5 0v-2.25H15a.75.75 0 0 0 0-1.5h-2.25V9Z"
+            clip-rule="evenodd"
+          />
+        </svg>
+      </div>
+
+      <button (click)="addToCart()">Add to cart</button>
+      <button class="outlineBtn mt-3" (click)="navigateToCart()">
+        Go to cart
+      </button>
+    </div>
+    }@placeholder {
+    <p>Loading product...</p>
+    }@loading (minimum 2s){
+    <p>Loading product...</p>
+    }
+  </div>
+</div>

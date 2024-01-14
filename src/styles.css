@@ -1,0 +1,85 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  @apply scroll-smooth;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+h2 {
+  @apply text-3xl font-bold mb-3;
+}
+
+h3 {
+  @apply text-2xl font-bold mb-1;
+}
+
+h5 {
+  @apply text-xl mb-3 font-bold;
+}
+
+h4 {
+  @apply text-base font-bold;
+}
+
+h6 {
+  @apply text-sm mb-3;
+}
+
+p {
+  @apply text-base;
+}
+
+hr {
+  @apply my-7;
+}
+
+button {
+  transition: background-color 0.3s ease;
+  width: 100%;
+
+  @apply w-full cursor-pointer capitalize rounded-full border-none px-6 py-3 text-white bg-primary-dark;
+}
+
+.outlineBtn {
+  background-color: white;
+  border: solid 2px theme("colors.primary-dark");
+  color: theme("colors.primary-dark");
+
+  @apply hover:bg-grey;
+}
+
+.sale {
+  @apply font-bold text-sale flex  mr-4;
+}
+
+.price {
+  display: flex;
+  @apply text-primary-light;
+}
+
+/* input counter ===*/
+.inptCounterDiv {
+  @apply flex my-8;
+}
+
+.inputCounter {
+  @apply w-8 text-center;
+}
+.inptCounterDiv svg:hover {
+  @apply cursor-pointer fill-primary;
+}
+
+ul {
+  @apply text-xs my-4;
+}
+
+li {
+  @apply mb-1;
+}

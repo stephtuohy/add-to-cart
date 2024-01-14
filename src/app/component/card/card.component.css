@@ -1,0 +1,29 @@
+.card {
+  @apply rounded-lg bg-white shadow-md relative cursor-pointer;
+}
+
+.card img {
+  object-fit: cover;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  @apply rounded-t-lg w-full h-full max-h-64;
+}
+
+.zoom {
+  transition: transform 0.2s;
+  /* Animation */
+  /* margin: 0 auto; */
+}
+
+.zoom:hover {
+  transform: scale(1.04);
+}
+
+.saleTag {
+  @apply absolute bg-sale left-0 top-5 text-white text-sm p-2;
+}
+
+.productInfo {
+  @apply p-3;
+}

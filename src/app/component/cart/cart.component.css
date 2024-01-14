@@ -1,0 +1,25 @@
+.cartList {
+  @apply col-span-4 flex flex-col m-8;
+}
+
+.cartList img {
+  @apply max-h-36 rounded-md;
+}
+
+.cartList > div > svg {
+  @apply flex justify-end;
+}
+
+.summary {
+  height: 100vh;
+  @apply bg-primary-light bg-opacity-70 w-full  col-span-2 p-8;
+}
+
+.summaryInfo {
+  @apply my-10 flex flex-col font-light;
+}
+
+.summaryInfo > div {
+  /* border-bottom: 1px solid theme(colors.black); */
+  @apply flex justify-between mb-3;
+}

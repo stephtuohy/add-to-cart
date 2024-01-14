@@ -1,0 +1,32 @@
+<div class="grid grid-cols-6">
+  <div class="cartList m-5">
+    @if (items.length) { @for (item of items; track $index) {
+    <app-cart-item [data]="item"></app-cart-item>} } @else {
+    <p>No items in cart</p>
+    }
+  </div>
+
+  <div class="summary">
+    <h3 class="mb-8">Summary</h3>
+
+    <div class="summaryInfo">
+      <div>
+        <p>SubTotal</p>
+        <p>{{ subTotal }}</p>
+      </div>
+
+      <div>
+        <p>Shipping*</p>
+        <p>{{ shipping }}</p>
+      </div>
+
+      <hr />
+      <div>
+        <h5>Total</h5>
+        <h5>{{ total }}</h5>
+      </div>
+    </div>
+
+    <button>Checkout</button>
+  </div>
+</div>

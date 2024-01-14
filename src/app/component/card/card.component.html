@@ -1,0 +1,25 @@
+<div class="card zoom" [id]="data.id" (click)="navigateToDetail()">
+  @if (data.cost_in_credits === 'unknown') {
+  <div class="saleTag">SALE</div>
+  } @defer () { @if (data.image) {
+  <img [src]="data.image" alt="random image" />
+  } @else {
+  <img [src]="placeholderImg" alt="placeholder image" />
+  }} @placeholder { <img [src]="placeholderImg" alt="placeholder image" />}
+
+  <div id="productInfo" class="productInfo">
+    <h4 id="productName">{{ data.name }}</h4>
+    <h6 id="productModel">{{ data.model }}</h6>
+
+    @if (data.cost_in_credits === 'unknown') {
+    <p id="price" class="price">
+      <span class="sale"> R99</span
+      ><span class="line-through">{{ data.cost_in_credits }}</span>
+    </p>
+    } @else {
+    <p id="price" class="price">
+      {{ data.cost_in_credits }}
+    </p>
+    }
+  </div>
+</div>

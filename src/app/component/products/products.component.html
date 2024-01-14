@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="grid grid-cols-3 gap-6 mt-10">
+    @defer(on viewport){ @for (item of productList; track $index) {
+    <app-card [data]="item"></app-card>
+    }} @loading (minimum 1s){
+    <p>Loading products...</p>
+    } @placeholder {
+    <p>Loading more products...</p>
+    }
+  </div>
+</div>
